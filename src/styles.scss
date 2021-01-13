@@ -1,0 +1,215 @@
+/* You can add global styles to this file, and also import other style files */
+
+// @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+$pwc-pink: #EE3F62;
+$pwc-light-gray: #DDD;
+$pwc-vinotinto: #80021A;
+$pwc-orange: #FF6700;
+
+/* Change Autocomplete styles in Chrome*/
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: black; //-webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.page-header {
+    font-size: 30px;
+    font-weight: 300;
+    border-bottom: 1px solid #a59f9f;
+}
+
+.degrade-felicidad-h {
+    background: #e8c000;
+    background: -moz-linear-gradient(left, #e8c000 0%, #ff6700 100%);
+    background: -webkit-linear-gradient(left, #e8c000 0%, #ff6700 100%);
+    background: linear-gradient(to right, #e8c000 0%, #ff6700 100%);
+}
+
+.degrade-felicidad-v {
+    background: #e8c000;
+    background: -moz-linear-gradient(top, #e8c000 0%, #ff6700 100%);
+    background: -webkit-linear-gradient(top, #e8c000 0%, #ff6700 100%);
+    background: linear-gradient(to bottom, #e8c000 0%, #ff6700 100%);
+}
+
+.degrade-motivacion-h {
+    background: #ec1b34;
+    background: -moz-linear-gradient(left, #ec1b34 0%, #ee3f62 100%);
+    background: -webkit-linear-gradient(left, #ec1b34 0%, #ee3f62 100%);
+    background: linear-gradient(to right, #ec1b34 0%, #ee3f62 100%);
+}
+
+.degrade-motivacion-v {
+    background: #ec1b34;
+    background: -moz-linear-gradient(top, #ec1b34 0%, #ee3f62 100%);
+    background: -webkit-linear-gradient(top, #ec1b34 0%, #ee3f62 100%);
+    background: linear-gradient(to bottom, #ec1b34 0%, #ee3f62 100%);
+}
+
+.degrade-estres-h {
+    background: #b82233;
+    background: -moz-linear-gradient(left, #b82233 0%, #80021a 100%);
+    background: -webkit-linear-gradient(left, #b82233 0%, #80021a 100%);
+    background: linear-gradient(to right, #b82233 0%, #80021a 100%);
+}
+
+.degrade-estres-v {
+    background: #b82233;
+    background: -moz-linear-gradient(top, #b82233 0%, #80021a 100%);
+    background: -webkit-linear-gradient(top, #b82233 0%, #80021a 100%);
+    background: linear-gradient(to bottom, #b82233 0%, #80021a 100%);
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+// ----------------------------------------------------------------------------------------------------
+// ---------------------------------------------- ESTILOS PIE ------------------------------------------
+// ----------------------------------------------------------------------------------------------------
+.pie_progress {
+    margin: auto;
+    margin-top: 70px;
+    max-width: 200px;
+}
+
+.pie_progress__number {
+    color: white;
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    font-size: 50px;
+    margin-top: -25px;
+}
+
+.motivacionPie {
+    .pie_progress__svg {
+        svg {
+            background: #5043c7 !important;
+        }
+    }
+}
+
+.estresPie {
+    .pie_progress__svg {
+        svg {
+            background: #8f1de1 !important;
+        }
+    }
+}
+
+.felicidadPie {
+    .pie_progress__svg {
+        svg {
+            background: #b4331d !important;
+        }
+    }
+}
+
+.pie_progress__svg {
+    svg {
+        background: transparent;
+        border-radius: 100%;
+        ellipse {
+            stroke: transparent;
+        }
+        path {
+            stroke: white;
+        }
+    }
+}
+
+// Arreglo provisional
+// .pie_progress {
+//     margin: auto;
+//     margin-top: -18px;
+//     max-width: 200px;
+//     width: 90%;
+// }
+// .pie_progress__number{
+//       color: white;
+//     margin: auto;
+//     text-align: center;
+//     position: relative;
+//     top: 135px;
+//     left: 50%;
+//     margin-left: -50px;
+//     font-size: 50px;
+// }
+// ----------------------------------------------------------------------------------------------------
+// ---------------------------------------------- ESTILOS PIE -----------------------------------------
+// ----------------------------------------------------------------------------------------------------
+.tarjetaFiltro {
+    position: relative;
+    border: 1px solid #E2E2E2;
+    padding: 4px;
+    padding-left: 11px;
+    padding-right: 25px;
+    border-radius: 7px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.closeTarjeta {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    color: red;
+    font-size: 26px;
+}
+
+.closeTarjeta:hover {
+    cursor: pointer;
+}

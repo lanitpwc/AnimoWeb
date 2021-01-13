@@ -1,0 +1,147 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Usuarios</h1>
+    </div>
+</div>
+
+<div class="marco auxiliar" style="position: relative">
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <span class="filterTxt">Filtrar usuarios por:</span>
+        </div>
+        <!--SELECTOR DE AREAS-->
+        <div class="col-lg-3 col-md-3">
+            <div class="cont-select">
+                <select name="" id="" class="filtro-select" [(ngModel)]="filtroArea" (ngModelChange)="cambio($event)">
+                    <option value="none" disabled selected>Área</option>
+                    <option *ngFor="let item of listaAreas" value="{{item}}">{{item}}</option>
+                </select>
+                <span class="icon-down-open-mini my-icon"></span>
+            </div>
+        </div>
+        <!--EDAD-->
+        <div class="col-lg-3 col-md-3">
+            <div class="cont-select">
+                <select name="" id="" class="filtro-select" [(ngModel)]="filtroEdad">
+                    <option value="none" disabled selected>Edad</option>
+                    <option value="18-20">18-20</option>
+                    <option value="21-25">21-25</option>
+                    <option value="26-30">26-30</option>
+                    <option value="31-35">31-35</option>
+                    <option value="36-40">36-40</option>
+                    <option value="41-45">41-45</option>
+                    <option value="46-50">46-50</option>
+                    <option value=">50">>50</option>
+                    <option value="todos">Todos</option>
+                </select>
+                <span class="icon-down-open-mini my-icon"></span>
+            </div>
+        </div>
+        <!--TEXTO-->
+        <div class="col-lg-3 col-md-3">
+            <input type="text" name="text" value="" placeholder="Buscar" [(ngModel)]="filtroTexto" style="border: none;border-bottom: 1px solid #E2E2E2;">
+        </div>
+    </div>
+    <!--TARJETA FILTROS-->
+    <div class="row" *ngIf="listaFiltroAreas.length>0" id="divTarjetas">
+        <div class="col-sm-12">
+            <span class="tarjetaFiltro" *ngFor="let item of listaFiltroAreas; let i = index;">
+                {{item}}
+                <span class="icon-cancel closeTarjeta" (click)="eliminar(i)"></span>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<div class="table-responsive">
+
+    <table class="table pwc-table" [mfData]="usersKey | usuarioArea: listaFiltroAreas: users | edadUsuario: users:filtroEdad | filtroNombre : filtroTexto : users" #mf="mfDataTable">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <!-- <th>Nombre</th>
+                <th>Email</th> -->
+                <th>Área</th>
+                <th>Edad</th>
+                <th>Ciudad</th>
+                <th>Sede</th>
+                <th>Estrés</th>
+                <th>Motivación</th>
+                <th>Felicidad</th>
+                <th>Registro</th>
+                <th></th>
+                <!--<th></th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of mf.data">
+                <td id="{{item}}-registro">
+                    <span *ngIf="users[item].anonimo">
+                        <b>{{users[item].anonimo.apodo}}</b>
+                    </span>
+                    <span *ngIf="!users[item].anonimo">-</span>
+                </td>
+                <!-- <td id="{{item}}-correo">{{users[item].nombre}}</td>
+                <td id="{{item}}-correo">{{users[item].email}}</td> -->
+
+                <td id="{{item}}-areas">{{users[item].los}}</td>
+                <td id="{{item}}-edad">{{users[item].fec_nacimiento}}</td>
+                <td id="{{item}}-ciudad">{{users[item].ciudad}}</td>
+                <td id="{{item}}-sede">{{ users[item].sede }}</td>
+                <td id="{{item}}-estres">{{users[item].emociones.estres.global.promedio | number : '1.2-2'}}</td>
+                <td id="{{item}}-motivacion">{{users[item].emociones.motivacion.global.promedio | number : '1.2-2'}}</td>
+                <td id="{{item}}-felicidad">{{users[item].emociones.felicidad.global.promedio | number : '1.2-2'}}</td>
+                <td id="{{item}}-registro">
+                    <span *ngIf="users[item].anonimo">
+                        <div *ngIf="(time - users[item].ultimoIngreso) <= 1209600000" class="activo"></div>
+                        <div *ngIf="(time - users[item].ultimoIngreso) > 1209600000" class="ausente"></div>
+                    </span>
+                    <span *ngIf="!users[item].anonimo">
+                        <div class="descativo"></div>
+                    </span>
+                </td>
+                <td>
+                    <!-- <span (click)="editUser(item)" class="icon-lapiz edit userOptions"></span> -->
+                    <!-- <span class="icon-borrar userOptions erase" (click)="deleteUser(item)"></span> -->
+                </td>
+            </tr>
+        </tbody>
+        <!--<tfoot>
+        <td colspan="5">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50,100]"></mfBootstrapPaginator>
+        </td>
+    </tfoot>-->
+    </table>
+
+
+</div>
+
+<div *ngIf="editMenu">
+
+    <h1 class="title">Editar usuario</h1>
+    <div class="row">
+        <div class="col-lg-12 editSection">
+            <div class="col-lg-4 col-md-4">
+                <input class="editInput" type="text" placeholder="Email" [(ngModel)]="editMailTxt">
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <select class="filtro-select editInput" [(ngModel)]="editAreaTxt">
+                    <option value="none" disabled selected>Edad</option>
+                    <option *ngFor="let item of listaAreas; let i of index" value="{{i}}">{{item}}</option>
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="btnEditGroup">
+                    <button class="btn btn-success" (click)="saveEditUser()">Guardar</button>
+                    <button class="btn btn-danger" (click)="cancelEdit()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="btnEditGroup">
+  <button class="btn btn-success" (click)="saveEditUser()">Guardar</button>
+  <button class="btn btn-danger" (click)="cancelEdit()">Cancelar</button>
+</div>-->
+</div>

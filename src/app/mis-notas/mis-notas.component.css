@@ -1,0 +1,138 @@
+* {
+    font-size: 15px;
+    line-height: 1.4;
+    lines-to-show: 3;
+    background: #B82233;
+}
+
+.contHeader {
+    height: 70px;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 17px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.contImg {
+    width: 15%;
+    text-align: center;
+    padding: 5px;
+}
+
+.content-ios {
+    background: none;
+}
+
+.content-md {
+    background: none;
+}
+
+.btn-hea {
+    font-size: 36px;
+    color: white;
+    background: none;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.cont {
+    background: white;
+    width: 100%;
+    border-radius: 10px;
+    min-height: 10vh;
+    margin-bottom: 10px;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.emojis img {
+    width: 20px;
+}
+
+.cal span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #909090;
+}
+
+.subt {
+    text-align: center;
+    color: #909090;
+    margin-top: 5vh;
+}
+
+._subt {
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.textnota {
+    width: 100%
+}
+
+.scroll-content {
+    margin-top: 100px !important;
+}
+
+.header-md::after,
+.tabs-md[tabsPlacement="top"]>.tabbar::after,
+.footer-md::before,
+.tabs-md[tabsPlacement="bottom"]>.tabbar::before {
+    display: none;
+}
+
+.selec {
+    border: 3px solid #f26e21;
+    border-radius: 50%;
+    background: #f26e21;
+}
+
+.bar-button-light-ios,
+.bar-button-default.bar-button-ios-light,
+.bar-button-clear-ios-light {
+    color: #f4f4f4;
+    background-color: transparent;
+    padding-left: 8px;
+}
+
+._back {
+    /* margin-left: 10px;*/
+    width: 40px;
+}
+
+.textnota_empty {
+    text-align: center;
+    color: white;
+    justify-content: center;
+}
+
+@media (min-width:320px) and (max-width:360px) {
+    .scroll-content {
+        /* margin-top: 140px !important;*/
+    }
+}

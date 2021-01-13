@@ -1,0 +1,453 @@
+.headerLarge {
+    height: 20vh;
+    padding-top: 7px;
+}
+
+.colorRadialGradient {
+    background: #EE3F62 !important;
+}
+
+
+/* padding: 0 !important; // Estilos para acomodar el logo */
+
+.miAnimoLogo {
+    width: initial;
+    height: 45px;
+    margin: auto;
+}
+
+.subtitleHeader {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: Avenir;
+}
+
+.emojiHeader {
+    width: 100px;
+    height: 100px;
+    background-color: #80021A;
+    position: relative;
+    margin-top: 2vh !important;
+    margin: 0 auto;
+    border-radius: 100%;
+    border: 2.7px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emojiHeader img {
+    width: 65px;
+}
+
+.title {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.contentDate {
+    width: 92%;
+    margin: auto;
+    position: relative;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contentDate .date {
+    width: 20vh;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #EEE;
+}
+
+.contentDate .date .item {
+    background: transparent !important;
+}
+
+.date .item .item-inner {
+    border-bottom: 0 !important;
+}
+
+.date .item .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+    color: #AAA;
+}
+
+.filterBtn {
+    width: 8vh;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #EEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filterBtn .icon {
+    color: #AAA;
+    font-size: 30px;
+}
+
+.up {
+    color: #006350;
+}
+
+.down {
+    color: #ec1b34;
+}
+
+.contentMotivacion {
+    background: linear-gradient(#ed3f62, #eb1a34) !important;
+}
+
+.contentEstres {
+    background: linear-gradient(#b82133, #80021a) !important;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres {
+    background: linear-gradient(#fdbd10, #f26f21);
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .titleFelicidad {
+    color: white;
+    padding-top: 20px;
+    font-weight: 700 !important;
+    font-size: 25px;
+    margin-top: 0;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .description {
+    width: 90%;
+    color: white;
+    font-size: 17px;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .separator {
+    border-bottom: 1px solid white;
+    height: 1px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .emotions {
+    max-width: 60%;
+    max-width: 200px;
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .emotion {
+    max-width: 50%;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .emotion img {
+    height: 100%;
+    width: 100%;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .emotion p {
+    width: 100%;
+    text-align: center;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .you {
+    height: 100%;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .you p {
+    margin-top: -10px;
+    color: white;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .others {
+    height: 50%;
+}
+
+.contentFelicidad,
+.contentMotivacion,
+.contentEstres .others p {
+    margin-top: 20px;
+    color: white;
+}
+
+.section1 {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    align-items: center;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+
+/* Gráfica general sobre la frecuencia de respuesta */
+
+.section1 .frecuenciaRespuesta {
+    width: 50%;
+    margin-right: 10px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.section1 .pie_progress__number {
+    color: #777;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.section1 circle {
+    fill: yellowgreen;
+    stroke: #655;
+    stroke-width: 10;
+    /*stroke-dasharray: Grosor, espaciado*/
+    /* 50% = 58 105 */
+    stroke-dasharray: 58 105;
+    /* 2π × 25 ≈ 158 */
+}
+
+.section1 img {
+    width: 140px;
+    height: 150px;
+}
+
+.section1 .description {
+    width: 80%;
+    text-align: center;
+    color: #666;
+    font-weight: 300;
+}
+
+.contentChart {
+    max-width: 100%;
+}
+
+
+/* ==================================================================================================== */
+
+
+/* ==================================== ESTILOS DE LA GRÁFICA ========================================= */
+
+
+/* ==================================================================================================== */
+
+.myChartDesign {
+    max-width: 90%;
+    height: 250px;
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.myChartDesign .margin {
+    width: 100%;
+    height: 90%;
+    padding-top: 5%;
+    display: flex;
+}
+
+
+/* Números que salen a la izquierda de la linea de indicación vertical */
+
+.myChartDesign .margin .indicatorNumbersContent {
+    width: 10%;
+}
+
+
+/* Únicamente el número */
+
+.myChartDesign .margin .indicatorNumbersContent .number {
+    color: #777;
+    margin: 18px 0;
+    font-size: 12px;
+    margin-left: 7px;
+}
+
+
+/* Línea derecha que acompaña al número */
+
+.myChartDesign .margin .indicatorNumbersContent .line {
+    width: 5px;
+    border-top: 1px dotted #AAA;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+
+/* Línea vertical de la gráfica */
+
+.myChartDesign .margin .verticalIndicator {
+    width: 1px;
+    height: 95%;
+    border-left: 1px dotted #AAA;
+    margin-right: 10px;
+}
+
+.myChartDesign .margin .contentBars {
+    height: 100%;
+    width: 90%;
+    overflow-x: scroll;
+    /* background-color: red; DESBLOQUEAR SI NO ME ACUERDO QUÉ ES */
+}
+
+
+/* Margen interna que contiene las barras */
+
+.myChartDesign .margin .contentBars .marginBars {
+    height: 163px;
+    margin-top: 24px;
+    /* background-color: blue; DESBLOQUEAR SI NO ME ACUERDO QUÉ ES */
+}
+
+
+/* Estilo de cada una de las barras */
+
+.myChartDesign .margin .contentBars .marginBars .bar {
+    width: 12px;
+    height: 100%;
+    background-color: darkorange;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.myChartDesign .margin .contentBars .marginBars .marginBars .bar .background {
+    background-color: white;
+}
+
+.myChartDesign .margin .contentBars .marginBars .marginBars .bar .linesHorizontalContent {
+    margin-top: -5px;
+    position: absolute;
+    height: 11px;
+}
+
+.myChartDesign .margin .contentBars .marginBars .marginBars .bar .linesHorizontalContent .line {
+    width: 1px;
+    margin: 0 5.5px;
+    display: inline-block;
+    height: 100%;
+    border-left: 1px dotted #AAA;
+}
+
+.zero {
+    height: 100% !important
+}
+
+.one {
+    height: 80% !important
+}
+
+.two {
+    height: 60% !important
+}
+
+.three {
+    height: 40% !important
+}
+
+.four {
+    height: 20% !important
+}
+
+.five {
+    height: 0 !important
+}
+
+
+/* ==================================================================================================== */
+
+
+/* ================================== ÚLTIMAS GRÁFICAS CIRCULARES ===================================== */
+
+
+/* ==================================================================================================== */
+
+.averageContent {
+    width: 100%;
+    padding-top: 20px;
+    height: auto;
+    text-align: center;
+}
+
+.averageContent .chartFelicidad {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 40%;
+}
+
+.averageContent .chartEstres {
+    display: inline-block;
+    width: 22%;
+}
+
+.averageContent .chartEstres .pie_progress__number {
+    font-size: 16px;
+}
+
+.averageContent .pie_progress {
+    background-color: white;
+    border-radius: 100%;
+}
+
+.averageContent .pie_progress .pie_progress__number {
+    color: #777;
+}
+
+.averageContent .pie_progress .pie_progress__number p {
+    font-weight: 300;
+    color: #AAA;
+}
+
+.averageContent .chartMotivacion {
+    display: inline-block;
+    width: 22%;
+}
+
+.averageContent .chartMotivacion .pie_progress__number {
+    font-size: 16px;
+}
+
+.averageContent .pie_progress__number {
+    color: white;
+    font-size: 25px;
+    font-weight: 300;
+}

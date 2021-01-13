@@ -1,0 +1,202 @@
+<header class="headerLarge colorRadialGradient">
+    <div>
+        <button class="contentMenuPWC">
+          <div class="menuPWC"></div>
+        </button>
+        <title>
+            <div class="miAnimoLogo"></div>
+        </title>
+    </div>
+
+    <div class="contentDate">
+        <div class="date">
+            <div class="item">
+                <label *ngIf="!dateFrom">Fecha: desde</label>
+                <input type="date" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" min="2018" max="2018-12-31" [(ngModel)]="dateFrom" monthShortNames="Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic">
+            </div>
+        </div>
+        <div class="date">
+            <div class="item">
+                <label *ngIf="!dateTo">Fecha: hasta</label>
+                <input type="date" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" min="2018" max="2018-12-31" [(ngModel)]="dateTo" monthShortNames="Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic">
+            </div>
+        </div>
+        <div class="filterBtn">
+            <button class="ios-arrow-forward" md="ios-arrow-forward"></button>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="bgContent">
+
+    <!--FRECUENCIA DE RESPUESTA -->
+
+    <!-- <h1 class="general-title title">Frecuencia de respuesta</h1>
+  <div class="section1">
+    <div class="pieGeneral frecuenciaRespuesta" role="progressbar" data-barcolor="#f26f21" data-barsize="12" aria-valuemin="0" aria-valuemax="100">
+      <span class="pie_progress__number">0%</span>
+    </div>
+
+  <div class="description">
+    <p>En este rango de tiempo, has respondido a tu ánimo:</p>
+    <strong>{{pushContestados}} de {{pushRecibidos}} veces <span></span></strong>
+  </div>
+  </div> -->
+
+
+
+
+
+
+    <!--
+  CUADRO DE EMOCIONES
+  -->
+    <!--<h1 class="general-title">Cuadro de emociones</h1>-->
+    <!--<div class="contentChart">
+    <div id="chart_div"></div>
+  </div>-->
+
+    <!--<div class="myChartDesign">
+  <div class="margin">
+    <div class="indicatorNumbersContent">
+      <div class="number">5 <div class="line"></div></div>
+      <div class="number">4 <div class="line"></div></div>
+      <div class="number">3 <div class="line"></div></div>
+      <div class="number">2 <div class="line"></div></div>
+      <div class="number">1 <div class="line"></div></div>
+    </div>
+
+    <div class="verticalIndicator"></div>
+
+    <div class="contentBars">
+      <div class="marginBars">
+        <div class="bar" *ngFor="let bar of chartVector">
+          <div [ngClass]="['background', bar.number]"></div>
+        </div>
+        <div class="linesHorizontalContent">
+          <div *ngFor="let bar of chartVector" class="line"></div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>-->
+
+    <!--
+  PROMEDIOS
+  -->
+    <h1 class="general-title">Promedios</h1>
+
+    <div class="averageContent">
+        <div class="chartMotivacion">
+            <div class="pie_progress motivacion" role="progressbar" data-barcolor="#ed3e61" data-barsize="12" aria-valuemin="0" aria-valuemax="5">
+                <span class="pie_progress__number">0%</span>
+            </div>
+            <p>Motivación</p>
+        </div>
+        <div class="chartFelicidad">
+            <div class="pie_progress felicidad" role="progressbar" data-barcolor="#f26f21" data-barsize="12" aria-valuemin="0" aria-valuemax="5">
+                <span class="pie_progress__number">0%</span>
+            </div>
+            <p>Felicidad</p>
+        </div>
+        <div class="chartEstres">
+            <div class="pie_progress estres" role="progressbar" data-barcolor="#80021a" data-barsize="12" aria-valuemin="0" aria-valuemax="5">
+                <span class="pie_progress__number">0%</span>
+            </div>
+            <p>Estrés</p>
+        </div>
+    </div>
+
+
+    <!--
+  CONTENIDO DE FELICIDAD
+-->
+    <div class="contentFelicidad">
+        <h1 class="general-title titleFelicidad">Tu felicidad</h1>
+        <p class="description">A continuación encontrarás la comparativa de tu ánimo en los diferentes sectores</p>
+
+        <!--
+    FELICIDAD EN LA EMPRESA, LINEA DE SERVICIO Y RANGO DE EDAD
+  -->
+
+        <div *ngFor="let emoji of emojisVector">
+
+            <div class="separator"></div>
+            <h1 class="general-title titleFelicidad">En tu {{emoji.title}}</h1>
+            <div class="emotions">
+                <div class="emotion you">
+                    <img [src]="'assets/img/emojis/'+ emoji.user +'.svg'" alt="" class="">
+                    <p>tú</p>
+                </div>
+                <div class="emotion others">
+                    <img [src]="'assets/img/emojis/'+ emoji.others +'.svg'" alt="" class="">
+                    <p>ellos</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--
+  CONTENIDO DE MOTIVACIÓN
+-->
+    <div class="contentMotivacion">
+        <h1 class="general-title titleFelicidad">Tu motivación</h1>
+        <p class="description">A continuación encontrarás la comparativa de tu ánimo en los diferentes sectores</p>
+
+        <!--
+    MOTIVACIÓN EN LA EMPRESA, LINEA DE SERVICIO Y RANGO DE EDAD
+  -->
+
+        <div *ngFor="let emoji of emojisVector">
+
+            <div class="separator"></div>
+            <h1 class="general-title titleFelicidad">En tu {{emoji.title}}</h1>
+            <div class="emotions">
+                <div class="emotion you">
+                    <img [src]="'assets/img/emojis/'+ emoji.user +'.svg'" alt="" class="">
+                    <p>tú</p>
+                </div>
+                <div class="emotion others">
+                    <img [src]="'assets/img/emojis/'+ emoji.others +'.svg'" alt="" class="">
+                    <p>ellos</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--
+  CONTENIDO DE ESTRÉS
+-->
+    <div class="contentEstres">
+        <h1 class="general-title titleFelicidad">Tu estrés</h1>
+        <p class="description">A continuación encontrarás la comparativa de tu ánimo en los diferentes sectores</p>
+
+        <!--
+    ESTRÉS EN LA EMPRESA, LINEA DE SERVICIO Y RANGO DE EDAD
+  -->
+
+        <div *ngFor="let emoji of emojisVector">
+
+            <div class="separator"></div>
+            <h1 class="general-title titleFelicidad">En tu {{emoji.title}}</h1>
+            <div class="emotions">
+                <div class="emotion you">
+                    <img [src]="'assets/img/emojis/'+ emoji.user +'.svg'" alt="" class="">
+                    <p>tú</p>
+                </div>
+                <div class="emotion others">
+                    <img [src]="'assets/img/emojis/'+ emoji.others +'.svg'" alt="" class="">
+                    <p>ellos</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

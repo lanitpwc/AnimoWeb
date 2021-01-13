@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Notas
+            <!--<span *ngIf="filtroArea != 'none' || filtroFecha || filtroEdad !='none'">Filtrado por:
+        <span *ngIf="filtroArea != 'none'">Área: {{filtroArea}},</span>
+      <span *ngIf="filtroFecha"> Fecha: {{filtroFecha}},</span>
+      <span *ngIf="filtroEdad != 'none'"> Edad: {{filtroEdad}}</span>
+      </span>-->
+        </h1>
+    </div>
+</div>
+<!--FILTROS-->
+<div class="marco">
+    <div class="row">
+        <div class="col-lg-2">
+            Filtrar notas por:
+        </div>
+        <!--FILTRO ÁREA-->
+        <div class="col-lg-2 col-md-2">
+            <div class="cont-select">
+                <select name="" id="" class="filtro-select" [(ngModel)]="filtroArea" [class.letra]="filtroArea=='none'" (ngModelChange)="cambio($event)">
+                    <option value="none" selected="selected" disabled>Área</option>
+                    <option *ngFor="let item of listaAreas" value="{{item}}">{{item}}</option>
+                    <option value="todos">Todas</option>
+                </select>
+                <span class="icon-down-open-mini my-icon"></span>
+            </div>
+        </div>
+        <!--FILTRO FECHA-->
+        <div class="col-lg-3 col-md-3">
+            <div class="cont-select">
+                <input type='text' id='rango' placeholder="Fecha" style="cursor: defaul;text-align: left;" class="selector filtro-select" [(ngModel)]="filtroFecha" />
+                <span class="icon-down-open-mini my-icon"></span>
+            </div>
+            <span *ngIf="(date1 || date2)" class="icon-cancel closeTarjeta" (click)="filtroFecha = null;date1= null;date2= null"></span>
+        </div>
+        <!--FILTRO EDAD-->
+        <div class="col-lg-2 col-md-2">
+            <div class="cont-select">
+                <select name="" id="" class="filtro-select" [(ngModel)]="filtroEdad" [class.letra]="filtroEdad=='none'">
+                    <option value="none" selected="selected" disabled>Edad</option>
+                    <option value="18-20">18-20</option>
+                    <option value="21-25">21-25</option>
+                    <option value="26-30">26-30</option>
+                    <option value="31-35">31-35</option>
+                    <option value="36-40">36-40</option>
+                    <option value="41-45">41-45</option>
+                    <option value="46-50">46-50</option>
+                    <option value=">50">>50</option>
+                    <option value="todos">Todos</option>
+                </select>
+                <span class="icon-down-open-mini my-icon"></span>
+            </div>
+        </div>
+        <!--TEXTO-->
+        <div class="col-lg-2 col-md-2">
+            <input type="text" name="text" value="" placeholder="Buscar" style="border: none;border-bottom: 1px solid #E2E2E2;border-radius: 0; text-align: left">
+        </div>
+    </div>
+    <!--TARJETA FILTROS-->
+    <div class="row" *ngIf="listaFiltroAreas.length>0" id="divTarjetas">
+        <div class="col-sm-12">
+            <span class="tarjetaFiltro" *ngFor="let item of listaFiltroAreas; let i = index;">
+                {{item}}
+                <span class="icon-cancel closeTarjeta" (click)="eliminar(i)"></span>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<!--NOTAS-->
+<div class="contenedor-notas">
+    <div class="row">
+
+        <div class="col-lg-4 " *ngFor="let item of ( temp | notasArea: listaFiltroAreas: keyNotas | fecha: keyNotas: date1: date2 | edad: keyNotas : filtroEdad ) ">
+            <div class="marco">
+                <!--CABEZA-->
+                <div class="columns" style="align-items: center;margin-bottom: 0;">
+                    <div class="column is-4" style="text-align: center">
+                        <div class="fondo degrade-felicidad-h">
+                            <div class="borde-fondo">
+                                <img src="assets/img/pl.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-8">
+                        <span class="t1">{{keyNotas[item].nombre}}</span>
+                        <span style="font-weight: 100;">{{item.area}}</span>
+                    </div>
+                </div>
+                <!--TEXTO NOTICIA-->
+                <textarea readonly>{{keyNotas[item].msg}}</textarea>
+                <!--FOOTHER-->
+                <div class="columns is-gapless" style="align-items: center;">
+                    <div class="column is-10">
+                        <span>{{keyNotas[item].fecha}}</span>
+                    </div>
+                    <div class="column is-1">
+                        <div class="bola degrade-{{keyNotas[item].emocion}}-h"></div>
+                    </div>
+                    <div class="column is-1">
+                        <img src="assets/img/{{keyNotas[item].emocion}}/{{keyNotas[item].valor}}.svg" alt="" style="width: 22px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,217 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Noticias</h1>
+    </div>
+</div>
+<div class="row">
+    <!--CREAR NOTICIAS-->
+    <div class="col-lg-4 col-ms-4 col-sm-12">
+        <span class="subt">Crear y programar noticia</span>
+        <div class="marco separador height" id="marco">
+            <!--SELECTOR DE AREAS-->
+            <div class="cont-select">
+                <select name="" id="" [(ngModel)]="area" (ngModelChange)="cambio($event)">
+                    <option value="none" disabled selected>Área</option>
+                    <option *ngFor="let item of listaAreas" value="{{item}}">{{item}}</option>
+                    <option value="todas">Todas</option>
+                </select>
+                <span class="icon-down-open-mini my-icon"></span>
+            </div>
+            <!--TARJETA FILTROS-->
+            <div class="row" *ngIf="listaFiltroAreas.length>0" id="divTarjetas">
+                <div class="col-sm-12">
+                    <span class="tarjetaFiltro" *ngFor="let item of listaFiltroAreas; let i = index;">
+                        {{item}}
+                        <span class="icon-cancel closeTarjeta" (click)="eliminar(i)"></span>
+                    </span>
+                </div>
+            </div>
+            <!--FECHA Y HORA-->
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="cont-select">
+                        <input type='text' id='dat1' placeholder="Fecha" style="cursor: default; text-align: left;padding-left: 10px;" class="selector" [(ngModel)]="fecha" />
+                        <span class="icon-down-open-mini my-icon"></span>
+                    </div>
+                </div>
+                <div class="col-md-5 " style="padding-left: 0;">
+                    <div class="cont-select">
+                        <input id='time' placeholder="Hora" style="cursor: default;text-align: left;padding-left: 4px;" class="selector" [(ngModel)]="hora" />
+                        <span class="icon-down-open-mini my-icon"></span>
+                    </div>
+                </div>
+            </div>
+            <!--CAMPO DE TEXTO NOTICIA-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!--<textarea placeholder="Noticia" id="area" [(ngModel)]="texto" style="font-size: 15px;"></textarea>-->
+                    <quill-editor id="area" [(ngModel)]="texto" style="font-size: 15px;" [options]="WYSIWYGOptions"></quill-editor>
+                </div>
+            </div>
+            <!--BOTONES-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="cont-select">
+                        <button type="button" class="color-boton" (click)="ptogramarNoticia()">Programar</button>
+                        <span class="icon-noticia icono-botoon"></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="button" style="margin-top: 10px;background-color: #B2B2B2;" (click)="cambiarNoticias()">{{textoBoton}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MOSTRAR NOCICIAS-->
+    <div class="col-lg-8 col-ms-8 col-sm-12" id="not1">
+        <span class="subt">Noticias enviadas</span>
+        <!--FILTRO-->
+        <div class="marco auxiliar" style="position: relative">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <span style="display: block;margin-top: 8px;">Filtrar noticias por:</span>
+                </div>
+                <!--SELECTOR DE AREAS-->
+                <div class="col-lg-2 col-md-2">
+                    <div class="cont-select">
+                        <select name="" id="" class="filtro-select" [(ngModel)]="filtroArea" (ngModelChange)="cambioFiltro2($event)">
+                            <option value="none" disabled selected>Área</option>
+                            <option *ngFor="let item of listaAreas" value="{{item}}">{{item}}</option>
+                        </select>
+                        <span class="icon-down-open-mini my-icon"></span>
+                    </div>
+                </div>
+                <!--FILTRO FECHA-->
+                <div class="col-lg-4 col-md-4" style="padding-left: 0;padding-right: 0">
+                    <div class="cont-select">
+                        <input type='text' id='rango' placeholder="Fecha" style="cursor: defaul;text-align: left;padding-bottom: 3px;" class="selector filtro-select" [(ngModel)]="filtroFecha" />
+                        <span class="icon-down-open-mini my-icon"></span>
+                    </div>
+                </div>
+                <!--FILTRO REACCION-->
+                <div class="col-lg-3 col-md-3 aux2">
+                    <div class="cont-select">
+                        <select name="" id="" class="filtro-select" [(ngModel)]="filtroReaccion">
+                            <option value="none" disabled selected>Reacción</option>
+                            <option value="5">Muy bueno</option>
+                            <option value="4">Bueno</option>
+                            <option value="3">Regular</option>
+                            <option value="2">Malo</option>
+                            <option value="1">Muy malo</option>
+                            <option value="-1">Todos</option>
+                        </select>
+                        <span class="icon-down-open-mini my-icon"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--TARJETA FILTROS-->
+            <div class="row" *ngIf="listaFiltroAreas2.length>0" id="divTarjetas">
+                <div class="col-sm-12">
+                    <span class="tarjetaFiltro" *ngFor="let item of listaFiltroAreas2; let i = index;">
+                        {{item}}
+                        <span class="icon-cancel closeTarjeta" (click)="eliminar2(i)"></span>
+                    </span>
+                </div>
+            </div>
+
+
+
+            <span class="icon-cancel cancel" id="cancel" data-toggle="tooltip" data-placement="top" title="Borrar filtros" (click)="borrarFiltros();filtroFecha=null"></span>
+        </div>
+        <!--ARREGLO DE NOTICIAS-->
+        <div class="contenedor-noticias" id="contededor">
+
+            <div class="marco separador" style="position: relative" *ngFor="let item of (listaNoticiasPublicadas | areas: listaFiltroAreas2: listaNoticias | fechaNoticias: listaNoticias: date1: date2 | reaccion : listaNoticias: filtroReaccion)">
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="info-noticia" style="font-weight: bold;font-size: 18px;">{{company}}</span>
+                        <span class="info-noticia" style="color: #8c8c8c;" *ngFor="let itema of listaNoticias[item].area">{{itema}}</span>
+                    </div>
+                    <div class="col-md-9">
+                        <span [innerHTML]="listaNoticias[item].texto"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="info-noticia" style="color: #8c8c8c;">{{listaNoticias[item].fecha}}</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="logos">
+                            <img src="assets/img/emotic/5.svg" alt="">
+                            <span>{{listaNoticias[item].c5}}</span>
+                        </div>
+                        <div class="logos">
+                            <img src="assets/img/emotic/4.svg" alt="">
+                            <span>{{listaNoticias[item].c4}}</span>
+                        </div>
+                        <div class="logos">
+                            <img src="assets/img/emotic/3.svg" alt="">
+                            <span>{{listaNoticias[item].c3}}</span>
+                        </div>
+                        <div class="logos">
+                            <img src="assets/img/emotic/2.svg" alt="">
+                            <span>{{listaNoticias[item].c2}}</span>
+                        </div>
+                        <div class="logos">
+                            <img src="assets/img/emotic/1.svg" alt="">
+                            <span>{{listaNoticias[item].c1}}</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="assets/img/borrar.svg" alt="" class="borrar" id="borrar" data-toggle="tooltip" data-placement="left" title="Borrar Noticia" (click)="borrarNoticia(item)">
+            </div>
+
+
+        </div>
+    </div>
+    <!--NOCICIAS NO PUBLICADAS-->
+    <div class="col-lg-8 col-ms-8 col-sm-12" id="not2">
+        <span class="subt">Noticias programadas</span>
+        <div class="contenedor-noticias" id="contededor2">
+            <div class="marco separador" style="position: relative" *ngFor="let item of listaNoticiasSinPublicar">
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="info-noticia" style="font-weight: bold;font-size: 18px;">{{company}}</span>
+                        <span class="info-noticia" style="color: #8c8c8c;" *ngFor="let itema of listaNoticias[item].area">{{itema}}</span>
+                    </div>
+                    <div class="col-md-9">
+                        <span [innerHTML]="listaNoticias[item].texto"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="info-noticia" style="color: #8c8c8c;">{{listaNoticias[item].fecha}}</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="logos">
+                            <img src="assets/img/emotic/5.svg" alt="">
+                            <span>{{listaNoticias[item].c5}}</span>
+                        </div>
+                        <div class="logos">
+                            <img src="assets/img/emotic/4.svg" alt="">
+                            <span>{{listaNoticias[item].c4}}</span>
+                        </div>
+                        <div class="logos">
+                            <img src="assets/img/emotic/3.svg" alt="">
+                            <span>{{listaNoticias[item].c3}}</span>
+                        </div>
+                        <div class="logos">
+                            <img src="assets/img/emotic/2.svg" alt="">
+                            <span>{{listaNoticias[item].c2}}</span>
+                        </div>
+                        <div class="logos">
+                            <img src="assets/img/emotic/1.svg" alt="">
+                            <span>{{listaNoticias[item].c1}}</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="assets/img/borrar.svg" alt="" class="borrar" id="borrar" data-toggle="tooltip" data-placement="left" title="Borrar Noticia">
+            </div>
+        </div>
+    </div>
+
+
+</div>

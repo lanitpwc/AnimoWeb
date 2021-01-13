@@ -1,0 +1,356 @@
+/*header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}*/
+
+.headerLarge {
+    height: 20vh;
+    padding-top: 7px;
+}
+
+.colorRadialGradient {
+    background: #EE3F62 !important;
+}
+
+.miAnimoLogo {
+    width: initial;
+    height: 45px;
+    margin: auto;
+}
+
+.subtitleHeader {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: Avenir;
+}
+
+.headerLarge>.toolbar {
+    min-height: 86px !important;
+}
+
+.topnav {
+    position: fixed;
+    z-index: 10;
+}
+
+.scroll-content {
+    background-color: #f1f1f1;
+    padding: 5vh 0 0 0!important;
+}
+
+.miniTituloDarkRed {
+    font-size: 3vh;
+    color: #B82233;
+    font-family: Georgia, 'Times New Roman', Times;
+}
+
+.marco {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    width: 65%;
+    margin-left: 10%;
+}
+
+.miniTituloWhite {
+    font-size: 3.3vh;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times;
+    margin-top: 10px;
+}
+
+.face-img {
+    width: 30%;
+    margin-top: 0px;
+}
+
+.resoult-txt {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 10vh;
+    font-size: 14px;
+}
+
+.red-text {
+    font-size: 14px;
+    color: #B82233;
+}
+
+.cont-bars-chart {
+    min-width: 95%;
+    height: 160px;
+    margin: 0 auto;
+    background: white;
+    width: 77%;
+}
+
+.info-circle-orange {
+    background: #FF6700;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.info-circle-pink {
+    background: #EE3F62;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.info-circle-red {
+    background: #B82233;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.guide-chart {
+    width: 95%;
+    height: 60px;
+    background: white;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.next-txt {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 5vh;
+    margin: 0 auto;
+    width: 85%;
+}
+
+.contentDate {
+    width: 92%;
+    margin: auto;
+    position: relative;
+    margin-top: 8vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contentDate .date {
+    width: 30vh;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #EEE;
+}
+
+.contentDate .date ion-item {
+    background: transparent !important;
+}
+
+.contentDate .date ion-item .item-inner {
+    border-bottom: 0 !important;
+}
+
+.contentDate .date ion-item ion-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+    color: #AAA;
+}
+
+.contentDate .filterBtn {
+    width: 8vh;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #EEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentDate .filterBtn ion-icon {
+    color: #AAA;
+    font-size: 30px;
+}
+
+footer {
+    background: #ECECEC;
+    text-align: center;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer img {
+    width: 5vh;
+}
+
+footer span {
+    display: block;
+}
+
+footer .active {
+    /* color: white !important;*/
+}
+
+footer .descative {
+    color: #C9C9C9;
+}
+
+.felicidad-bar .ct-series-a .ct-bar {
+    stroke: #FF6700;
+}
+
+.estres-bar .ct-series-a .ct-bar {
+    stroke: #80021A;
+}
+
+.motivacion-bar .ct-series-a .ct-bar {
+    stroke: #EE3F62;
+}
+
+.ct-series-b .ct-slice-donut {
+    stroke: rgba(255, 103, 0, 0.15);
+}
+
+.ct-series-a .ct-slice-donut {
+    stroke: #FF6700;
+    stroke-width: 5px !important;
+}
+
+.titulos {
+    display: block;
+    text-align: center;
+    font-size: 3.6vh;
+    font-weight: 600;
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.small {
+    font-size: 5vh;
+}
+
+span {
+    display: block;
+    text-align: center;
+}
+
+.felicidad-pie .ct-series-b .ct-slice-donut {
+    stroke: rgba(255, 103, 0, 0.15);
+}
+
+.felicidad-pie .ct-series-a .ct-slice-donut {
+    stroke: #FF6700;
+    stroke-width: 5px !important;
+}
+
+.estres-pie .ct-series-b .ct-slice-donut {
+    stroke: rgba(128, 2, 26, 0.12);
+}
+
+.estres-pie .ct-series-a .ct-slice-donut {
+    stroke: #80021A;
+    stroke-width: 5px !important;
+}
+
+.motivacion-pie .ct-series-b .ct-slice-donut {
+    stroke: rgba(238, 63, 98, 0.15);
+}
+
+.motivacion-pie .ct-series-a .ct-slice-donut {
+    stroke: #EE3F62;
+    stroke-width: 5px !important;
+}
+
+.pieSecundario {
+    top: 5vh;
+}
+
+.pieSecundario span {
+    font-size: 2vh;
+}
+
+.felicidadCont {
+    width: 100%;
+    background: #F26E21;
+}
+
+.motivacionCont {
+    width: 100%;
+    background: #EE3F62;
+}
+
+.estresCont {
+    width: 100%;
+    background: #80021A;
+}
+
+.word-felicidad {
+    color: #F26E21 !important;
+}
+
+.word-motivacion {
+    color: #EE3F62 !important;
+}
+
+.word-estres {
+    color: #80021A !important;
+}
+
+.comparacion {
+    width: 100%;
+    position: relative;
+    padding: 16px;
+    color: white;
+}
+
+.comparacion .titulos {
+    color: white;
+}
+
+hr {
+    position: relative;
+    left: -16px;
+    width: 110%;
+    height: 1px !important;
+    background-color: white !important;
+}
+
+.estilofuentepieprom {
+    padding: 5px;
+    font-family: avenir;
+    font-size: 3.7vh;
+}
+
+@media (width:320px) {
+    .contentDate {
+        margin-top: 4vh;
+    }
+}
+
+@media (width:360px) {
+    .contentDate {
+        margin-top: 6vh;
+    }
+}
+
+@media (min-width:320px) and (max-width:360px) {
+    .title-top {
+        margin-top: 25px;
+    }
+}
+
+@media (width:412px) {
+    .title-top {
+        margin-top: 30px;
+    }
+}

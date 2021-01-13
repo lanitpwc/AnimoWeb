@@ -1,0 +1,89 @@
+<div class="row marco2">
+    <div class="col-xs-12 col-sm-6">
+        <h1 style="font-size: 30px;">Estadísticas por áreas</h1>
+    </div>
+    <div class="col-xs-4 col-sm-2">
+        <div class="f1" style="background: #FF6700"></div>
+        <span style="padding-left: 10px">Felicidad</span>
+    </div>
+    <div class="col-xs-4 col-sm-2">
+        <div class="f1" style="background: #EE3F62"></div>
+        <span style="padding-left: 10px">Motivación</span>
+    </div>
+    <div class="col-xs-4 col-sm-2">
+        <div class="f1" style="background: #80021A"></div>
+        <span style="padding-left: 10px">Estrés</span>
+    </div>
+</div>
+
+<div class="marco">
+    <div class="row">
+        <div class="col-lg-2" style="padding-top: 7px;">
+            Ver estadísticas por:
+        </div>
+        <div class="col-lg-3">
+            <div class="cont-select">
+                <select name="" id="" class="filtro-select" [(ngModel)]="filtroArea" [class.letra]="filtroArea=='none'" (ngModelChange)="cambio($event)">
+                    <option value="none" selected="selected" disabled>Área</option>
+                    <option *ngFor="let item of listaAreasGeneral" value="{{item}}">{{item}}</option>
+                    <option value="todos">Todas</option>
+                </select>
+                <span class="icon-down-open-mini my-icon"></span>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="cont-select">
+                <select name="" id="" class="filtro-select" [(ngModel)]="memocion" (ngModelChange)="cambioEmocion($event)">
+                    <option value="none" selected="selected" disabled>Emociones</option>
+                    <option value="felicidad">Felicidad</option>
+                    <option value="motivacion">Motivación</option>
+                    <option value="estres">Estrés</option>
+                    <option value="todos">Todas las emociones</option>
+                </select>
+                <span class="icon-down-open-mini my-icon"></span>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="cont-select">
+                <input type='text' id='rango' placeholder="Fecha" class="selector filtro-select fecha" />
+                <span *ngIf="!(d1 || d2)" class="icon-down-open-mini my-icon"></span>
+            </div>
+            <span *ngIf="(d1 || d2)" class="icon-cancel closeTarjeta" (click)="reset();filtroFecha = null"></span>
+        </div>
+    </div>
+    <!--TARJETA FILTROS-->
+    <div class="row" *ngIf="listaFiltroAreas.length>0" id="divTarjetas">
+        <div class="col-sm-12">
+            <span class="tarjetaFiltro" *ngFor="let item of listaFiltroAreas; let i = index;">
+                {{item}}
+                <span class="icon-cancel closeTarjeta" (click)="eliminar(i)"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="padding-left: 15px; padding-right: 15px;">
+    <div class="columns" style="flex-wrap: wrap;">
+        <div class="column is-4" *ngFor="let item of listaAreas">
+            <div class="marco">
+                <h2>{{item}}</h2>
+                <div style="width: 100%;overflow-x: auto;margin-bottom: 10px;">
+                    <div id="cont-{{item}}" style="min-width: 100%;">
+                        <div class="bar-{{item}}"></div>
+                    </div>
+                </div>
+                <div class="columns" style="text-align: center;">
+                    <div class="column is-4">
+                        <div class="m-{{item}}-char motivacion"></div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="f-{{item}}-char felicidad"></div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="e-{{item}}-char estres"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

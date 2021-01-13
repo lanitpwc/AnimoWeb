@@ -1,0 +1,53 @@
+<header class="headerLarge" no-border>
+    <div>
+        <div class="contHeader">
+            <div class="contImg">
+                <img src="assets/img/menuIcons/logoWhite.svg" alt="">
+            </div>
+            <div class="subtitleHeader">Mis notas</div>
+        </div>
+    </div>
+</header>
+
+<app-mensaje-temporal></app-mensaje-temporal>
+
+<div>
+
+    <div class="" *ngIf="listaNotas.length === 0">
+        <div class="container">
+            <div class="row" class="textnota textnota_empty">
+                Aún no tienes notas
+            </div>
+        </div>
+    </div>
+
+
+    <div class="cont" *ngFor="let item of listaNotas">
+        <div class="container">
+            <!--cabeza-->
+            <div class="row" style="color: #828282;font-size: 12px;">
+                <div class="col-xs-3" width-50 *ngIf="notas[item].emocion == 'felicidad'">Felicidad</div>
+                <div class="col-xs-3" width-50 *ngIf="notas[item].emocion == 'motivacion'">Motivación</div>
+                <div class="col-xs-3" *ngIf="notas[item].emocion == 'estres'">Estrés</div>
+                <div class="col-xs-3" width-50 style="text-align: right">{{notas[item].fecha}}</div>
+            </div>
+            <!--cuerpo-->
+            <div class="row">
+                <div class="col-xs-2" width-20 class="_subt flexColumnCenter">
+                    <img src="assets/img/emojis/{{notas[item].valor}}.svg" alt="" *ngIf="notas[item].emocion == 'felicidad'">
+                    <img src="assets/img/{{notas[item].emocion}}/{{notas[item].valor}}.svg" alt="" *ngIf="notas[item].emocion != 'felicidad'">
+                </div>
+                <div class="textnota" id="text-{{item}}">
+                    {{notas[item].msg}}
+                </div>
+            </div>
+            <!--<ion-row style="align-items: center">
+              <ion-col width-100 style="text-align: right;font-size: 25px;">
+                <ion-icon *ngIf="keyNoticia != item" name="ios-add-circle-outline" (click)="abrir(item)"></ion-icon>
+                <ion-icon *ngIf="keyNoticia == item" name="ios-remove-circle-outline" (click)="cerrar(item)"></ion-icon>
+              </ion-col>
+            </ion-row>-->
+        </div>
+    </div>
+
+</div>

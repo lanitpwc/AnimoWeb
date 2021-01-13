@@ -1,0 +1,17 @@
+.container {
+    height: 100vh;
+}
+
+.success {
+    padding: 3vw;
+    margin: 3vh auto;
+    border: 2px solid white;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.success > .title {
+    color: black;
+    font-weight: 600;
+    font-size: larger;
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>miÁnimo - Dashboard</title>
+    <base href="./">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- MetisMenu CSS -->
+    <link href="/assets/js/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+
+    <link href="https://file.myfontastic.com/D2CkrkhNSm35gab4DHrwdB/icons.css" rel="stylesheet">
+    <!--<link href="/assets/css/styles.css" rel="stylesheet">-->
+
+    <link href="/assets/css/datepicker.css" rel="stylesheet">
+
+    <link href="/assets/css/wickedpicker.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <link rel="stylesheet" href="/assets/lib/chart/chartist.min.css">
+
+    <style>
+        body {
+            background-color: #80021A !important;
+        }
+        /*
+      .ct-series-a .ct-bar {
+        stroke: #FF6700;
+      }
+
+      .ct-series-b .ct-bar {
+        stroke: #EE3F62;
+      }
+
+      .ct-series-c .ct-bar {
+        stroke: #80021A;
+      }*/
+        
+        .felicidad .ct-series-b .ct-slice-donut {
+            stroke: rgba(255, 103, 0, 0.15);
+        }
+        
+        .felicidad .ct-series-a .ct-slice-donut {
+            stroke: #FF6700;
+            stroke-width: 5px !important;
+        }
+        
+        .motivacion .ct-series-b .ct-slice-donut {
+            stroke: rgba(238, 63, 98, 0.15);
+        }
+        
+        .motivacion .ct-series-a .ct-slice-donut {
+            stroke: #EE3F62;
+            ;
+            stroke-width: 5px !important;
+        }
+        
+        .estres .ct-series-b .ct-slice-donut {
+            stroke: rgba(128, 2, 26, 0.12);
+        }
+        
+        .estres .ct-series-a .ct-slice-donut {
+            stroke: #80021A;
+            ;
+            stroke-width: 5px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <app-root>
+        <span style="color: white; width: 100%; text-align: center; height: 100vh;">Loading...</span>
+    </app-root>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/assets/js/sb-admin-2.js"></script>
+    <script src="/assets/js/metisMenu/metisMenu.min.js"></script>
+
+    <script src="/assets/js/bootstrap-datepicker.js"></script>
+    <script src="/assets/js/wickedpicker.min.js"></script>
+
+    <script src="/assets/js/hamlet.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+    <!-- Chart Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+    <!-- Chart circle progress -->
+    <script src="/assets/js/jquery-asPieProgress.min.js"></script>
+
+    <script src="/assets/lib/chart/chartist.min.js"></script>
+    <script src="/assets/lib/chartpie/chartist-plugin-fill-donut.js"></script>
+</body>
+
+</html>

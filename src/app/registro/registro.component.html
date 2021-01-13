@@ -1,0 +1,251 @@
+<div class="login-background">
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="title georgia">
+                <img class="img_title" src="/assets/img/LogoMiAnimo.svg" alt="">
+                <br> Formulario de Registro
+            </p>
+            <!--<a class="btn-primary" (click)="addProfile()">Force Data into Firebase</a>-->
+            <div class="separator"></div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!terms && submitted">
+        <div class="col-lg-12">
+            <div class="alert alert-danger">
+                No haz aceptado los términos y condiciones de uso.
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <form class="form-horizontal formulario">
+            <!-- Primera parte del formulario de registro -->
+            <div class="col-lg-6 sideA">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Nombre Completo</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" [(ngModel)]='registration.nombre' name="nombre" type="text" placeholder="Nombre Completo">
+                        <span class="label-error" *ngIf="submitted && forma.controls['nombre'].invalid"> {{ forma.controls['nombre']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Apodo</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" [(ngModel)]='registration.apodo' name="apodo" type="text" placeholder="Apodo">
+                        <span class="label-error" *ngIf="submitted && forma.controls['apodo'].invalid"> {{ forma.controls['apodo']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                        <small>Este apodo es para mantener el anonimato dentro de la plataforma</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Sexo</label>
+                    <div class="col-sm-9">
+                        <select class="form-control dropdown-select" (change)="onChangeSexo($event.target.value)">
+                            <option value="null">Seleccione su sexo</option>
+                            <option *ngFor="let x of sexos" value="{{ x.value }}">{{ x.text }}</option>
+                        </select>
+                        <span class="label-error" *ngIf="submitted && forma.controls['sexo'].invalid"> {{ forma.controls['sexo']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Correo</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" [(ngModel)]='registration.correo' name="correo" type="text" placeholder="correo electrónico" (change)="getDomain($event.target.value)">
+                        <!--<input class="form-control" [(ngModel)]='registration.correo' name='correo' type="text" placeholder="correo electrónico">-->
+
+                        <span class="label-error" *ngIf="submitted && forma.controls['correo'].invalid"> {{ forma.controls['correo']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Contraseña</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" [(ngModel)]='registration.password' name="password" type="password" placeholder="Contraseña">
+                        <span class="label-error" *ngIf="submitted && forma.controls['password'].invalid"> {{ forma.controls['password']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Repetir Contraseña</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" [(ngModel)]='registration.password_v' name="password_v" type="password" placeholder="Repita la contraseña">
+                        <span class="label-error" *ngIf="submitted && forma.controls['password_v'].invalid"> {{ forma.controls['password_v']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Segunda parte del formulario de registro de mi animo -->
+            <div class="col-lg-6 sideB">
+
+                <!-- Rango de Edad -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Edad</label>
+                    <div class="col-sm-9">
+                        <div class="btn-toolbar" role="toolbar">
+                            <div class="btn-group btn-group-justified" role="group" aria-label="edades group">
+
+                                <div class="btn-group" role="group" *ngIf="!found">
+                                    <button type="button" disabled class="btn btn-default">Debe escribir su cuenta de correo corporativo</button>
+                                </div>
+
+                                <div *ngIf="found">
+                                    <div class="btn-group" role="group" *ngFor="let e of edades">
+                                        <button type="button" (click)="setAgeRange(e)" class="btn btn-default">{{e}}</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <span class="label-error" *ngIf="submitted && forma.controls['age_range'].invalid">
+                            {{ forma.controls['age_range']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Empresa</label>
+                    <div class="col-sm-9">
+                        <select class="form-control dropdown-select" [attr.disabled]="!found?'':null" (change)="onChangeEmpresa($event.target.value)">
+                            <option value="null">Selecciona una empresa</option>
+                            <option *ngFor="let empresa of empresas">{{ empresa.name }}</option>
+                        </select>
+                        <span class="label-error" *ngIf="submitted && forma.controls['empresa'].invalid"> {{ forma.controls['empresa']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Cargo</label>
+                    <div class="col-sm-9">
+                        <select class="form-control dropdown-select" [attr.disabled]="!found?'':null" (change)="onChangeCargo($event.target.value)">
+                            <option value="null">Selecciona un Cargo</option>
+                            <option *ngFor="let c of cargos">{{ c.name }}</option>
+                        </select>
+                        <span class="label-error" *ngIf="submitted && forma.controls['cargo'].invalid"> {{ forma.controls['cargo']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Área</label>
+                    <div class="col-sm-9">
+                        <select class="form-control dropdown-select" [attr.disabled]="!found?'':null" (change)="onChangeArea($event)">
+                            <option value="null">Selecciona un Área</option>
+                            <option *ngFor="let a of areas" value="{{ a.name}}">{{ a.name }}</option>
+                        </select>
+                        <span class="label-error" *ngIf="submitted && forma.controls['area'].invalid"> {{ forma.controls['area']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Sub Área</label>
+                    <div class="col-sm-9">
+                        <select class="form-control dropdown-select" [attr.disabled]="!found?'':null" (change)="onChangeSubArea($event)">
+                            <option value="null">Selecciona una Sub Area</option>
+                            <option *ngFor="let s of subareas" value="{{ s.name }}">{{ s.name }}</option>
+                        </select>
+                        <span class="label-error" *ngIf="submitted && forma.controls['sub_area'].invalid"> {{ forma.controls['sub_area']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Bussines Unit</label>
+                    <div class="col-sm-9">
+                        <select class="form-control dropdown-select" [attr.disabled]="!found?'':null" (change)="onChangeBussinesUnit($event)">
+                            <option value="null">Selecciona una Unidad de Negocio</option>
+                            <option *ngFor="let bu of bussines_units">{{ bu.name }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Ciudad</label>
+                    <div class="col-sm-9">
+                        <select class="form-control dropdown-select" [attr.disabled]="!found?'':null" (change)="onChangeCiudad($event)">
+                            <option value="null">Selecciona una Ciudad</option>
+                            <option *ngFor="let c of ciudades" (change)="alert(c.name)">{{ c.name }}</option>
+                        </select>
+                        <span class="label-error" *ngIf="submitted && forma.controls['ciudad'].invalid">
+                            {{ forma.controls['ciudad']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Sede</label>
+                    <div class="col-sm-9">
+                        <select class="form-control dropdown-select" [attr.disabled]="!found?'':null" (change)="onChangeSede($event)">
+                            <option value="null">Selecciona una Sede</option>
+                            <option *ngFor="let s of sedes">{{ s.name }}</option>
+                        </select>
+                        <span class="label-error" *ngIf="submitted && forma.controls['sede'].invalid">
+                            {{ forma.controls['sede']._errors.message }}
+                            <i class="fa fa-exclamation"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="_row">
+        <div class="col-12 text-center">
+            <p class="legal">Para nosotros es importante conocer tu estado de ánimo. Si tienes quejas, reclamos o denuncias que estén relacionadas con asuntos éticos, de convivencia y/o de acoso laboral, utiliza los canales previstos para ello (etica@co.pwc.com).</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer" *ngIf="!terms">
+    <div class="container-fluid avenir">
+
+        <div class="row" *ngIf="!terms">
+            <div class="col-xs-12 text-center terms">
+                Para continuar con el registro debes leer y aceptar nuestros
+                <span class="click" (click)="termsAndConditions()">términos y condiciones de uso</span>
+                <br>
+                <button class="click btn btn-brown" (click)="termsAndConditions()">Aceptar términos y condiciones de uso</button>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<footer class="footer footer_action" *ngIf="terms">
+    <div class="container-fluid avenir">
+
+        <!-- botones de acción -->
+        <div class="row action_buttons">
+            <div class="col-xs-6 col-sm-4 col-sm-offset-2">
+                <button type="button" (click)="reload()" class="btn btn-default btn-block btn-cancelar">Cancelar</button>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+                <button type="submit" (click)="submitRegistration()" class="btn button-go btn-block">Registrarme</button>
+            </div>
+        </div>
+
+    </div>
+</footer>

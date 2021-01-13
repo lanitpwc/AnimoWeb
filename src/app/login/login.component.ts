@@ -93,7 +93,12 @@ export class LoginComponent implements OnInit {
                                     //document.getElementById('navbar').style.display = 'block'
                                     localStorage.setItem('bandAdmin', 'true')
                                    
+                           
                                     location.reload()
+                                    document.getElementById('home').style.display = 'none'
+                                    document.getElementById('estadisticas').style.display = 'none'
+                                    document.getElementById('noticiasuser').style.display = 'none'
+                                    document.getElementById('notasuser').style.display = 'none'
                                 }
                                 else{
                                     this.userState( ); 
@@ -113,6 +118,10 @@ export class LoginComponent implements OnInit {
             }
             else{          
             document.getElementById('navbar').style.display = 'block'
+            document.getElementById('home').style.display = 'none'
+            document.getElementById('estadisticas').style.display = 'none'
+            document.getElementById('noticiasuser').style.display = 'none'
+            document.getElementById('notasuser').style.display = 'none'
             this.router.navigate(['/escritorio']);
             }
         }
